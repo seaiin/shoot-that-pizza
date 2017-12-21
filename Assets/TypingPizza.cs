@@ -7,10 +7,10 @@ using UnityEngine;
 public class TypingPizza : MonoBehaviour {
 
     char[] pizzaCode = new char[10];
-    int pizzaCodeCount = 0;
-    string input = "";
+    int pizzaCodeCount;
+    string input;
 
-    public string detectPressedKey()
+    private string detectPressedKey()
     {
         foreach (KeyCode kcode in Enum.GetValues(typeof(KeyCode)))
         {
@@ -23,11 +23,16 @@ public class TypingPizza : MonoBehaviour {
         return "";
     }
 
+    public void GetPizza()
+    {
+
+    }
+
     // Use this for initialization
     void Start () {
-        pizzaCode = "HWI".ToCharArray();
         pizzaCodeCount = 0;
-	}
+        input = "";
+    }
 	
 	// Update is called once per frame
 	void Update () {
