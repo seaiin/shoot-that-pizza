@@ -3,19 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Pizza : MonoBehaviour {
-    private Dictionary<int, string> typePizza = new Dictionary<int, string>();
+    private static Dictionary<int, string> typePizza;
+    private string pizzaCode;
 
     void Start() {
-        typePizza.Add(1, "HWI");
-        typePizza.Add(2, "ITM");
-        typePizza.Add(3, "PRM");
-        typePizza.Add(4, "MLV");
-        typePizza.Add(5, "BBQ");
+        typePizza = new Dictionary<int, string>();
+        typePizza.Add(0, "HWI");
+        typePizza.Add(1, "ITM");
+        typePizza.Add(2, "PRM");
+        typePizza.Add(3, "MLV");
+        typePizza.Add(4, "BBQ");
     }
 
-    public string getTypePizza () {
-        int numType = (int) Random.Range(0, 6);
+    public string getTypeOfPizza () {
+        int numType = (int)(Random.Range(0, 5));
+        Debug.Log(numType);
+        pizzaCode = typePizza[numType];
+        Debug.Log(pizzaCode);
 
-        return typePizza[numType];
+        return pizzaCode;
     }
 }
