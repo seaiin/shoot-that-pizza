@@ -5,12 +5,14 @@ using UnityEngine;
 public class GameManage : MonoBehaviour {
 
     private TypingPizza typingPizza;
+    private Score score;
     private string pizza = "";
 
 	// Use this for initialization
 	void Start () {
         pizza = "HWI";
         typingPizza = gameObject.AddComponent<TypingPizza>();
+        score = gameObject.AddComponent<Score>();
         typingPizza.SetPizza(pizza);
     }
 	
@@ -21,6 +23,7 @@ public class GameManage : MonoBehaviour {
 
         if (typingPizza.isTypingFinish())
         {
+            score.SetScore(100);
             typingPizza.SetPizza(pizza);
         }
 
