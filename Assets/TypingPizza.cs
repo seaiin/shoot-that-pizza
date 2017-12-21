@@ -6,9 +6,10 @@ using UnityEngine;
 
 public class TypingPizza : MonoBehaviour {
 
-    char[] pizzaCode = new char[10];
-    int pizzaCodeCount;
-    string input;
+    private char[] pizzaCode = new char[10];
+    private int pizzaCodeCount;
+    private string input;
+    private bool isFinish = false;
 
     private string detectPressedKey()
     {
@@ -23,30 +24,29 @@ public class TypingPizza : MonoBehaviour {
         return "";
     }
 
-    public void GetPizza()
+    private void GetInput()
     {
-
-    }
-
-    // Use this for initialization
-    void Start () {
-        pizzaCodeCount = 0;
-        input = "";
-    }
-	
-	// Update is called once per frame
-	void Update () {
         input = detectPressedKey();
+    }
 
-        if(pizzaCodeCount >= pizzaCode.Length)
+    private void SetFinish()
+    {
+        if (pizzaCodeCount >= pizzaCode.Length)
         {
+            isFinish = true;
             Debug.Log("Finish!");
-            pizzaCodeCount = 0;
         }
-
-        if(Regex.IsMatch(input, @"^[A-Z]+$"))
+        else
         {
-            if(input[0] == pizzaCode[pizzaCodeCount])
+            isFinish = false;
+        }
+    }
+
+    private void CheckInput()
+    {
+        if (Regex.IsMatch(input, @"^[A-Z]+$"))
+        {
+            if (input[0] == pizzaCode[pizzaCodeCount])
             {
                 pizzaCodeCount++;
                 Debug.Log("Correct!");
@@ -57,6 +57,35 @@ public class TypingPizza : MonoBehaviour {
                 Debug.Log("Incorrect!");
             }
         }
+    }
+
+    public void SetPizza(string pizza)
+    {
+        pizzaCode = pizza.ToCharArray();
+        pizzaCodeCount = 0;
+    }
+
+    public bool isTypingFinish()
+    {
+        return isFinish;
+    }
+
+    public void TypeUpdate()
+    {
+        GetInput();
+        CheckInput();
+        SetFinish();
+    }
+
+
+    // Use this for initialization
+    void Start () {
+
+    }
+	
+	// Update is called once per frame
+	void Update () {
+        
 	}
 
 }
