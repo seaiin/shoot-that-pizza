@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Pizza : MonoBehaviour {
-    private static Dictionary<int, string> typePizza;
+    private static Dictionary<int, string> typePizza = new Dictionary<int, string>();
     private string pizzaCode;
 
     void Start() {
-        typePizza = new Dictionary<int, string>();
         typePizza.Add(0, "HWI");
         typePizza.Add(1, "ITM");
         typePizza.Add(2, "PRM");
