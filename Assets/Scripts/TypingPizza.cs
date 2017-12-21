@@ -49,12 +49,20 @@ public class TypingPizza : MonoBehaviour {
             if (input[0] == pizzaCode[pizzaCodeCount])
             {
                 pizzaCodeCount++;
-                Debug.Log("Correct!");
+                Debug.Log("Correct! - " + pizzaCodeCount);
             }
             else
-            {
-                pizzaCodeCount = 0;
-                Debug.Log("Incorrect!");
+            { 
+                if (input[0] == pizzaCode[0] && pizzaCodeCount == 1)
+                {
+                    pizzaCodeCount = 1;
+                    Debug.Log("Correct! - " + pizzaCodeCount);
+                }
+                else
+                {
+                    pizzaCodeCount = 0;
+                    Debug.Log("Incorrect!");
+                }   
             }
         }
     }
