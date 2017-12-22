@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 212347830879424510}
   - component: {fileID: 114398936791531174}
   - component: {fileID: 58119929097969156}
-  - component: {fileID: 114757896362037946}
   - component: {fileID: 50864422719285808}
   m_Layer: 0
   m_Name: House
@@ -91,17 +90,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pizza: {fileID: 114723823893013516, guid: 8e141a423652dcd4a8e55845f8c66517, type: 2}
---- !u!114 &114757896362037946
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1520656519257870}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 065249c1bdee21645a4473ad8e1fc9b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &212347830879424510
 SpriteRenderer:
   m_ObjectHideFlags: 1
