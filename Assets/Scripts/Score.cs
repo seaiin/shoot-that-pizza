@@ -22,8 +22,6 @@ public class Score : MonoBehaviour {
         return score;
     }
 
-
-
 	// Use this for initialization
 	void Start () {
 		

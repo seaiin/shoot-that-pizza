@@ -6,6 +6,7 @@ public class GameManage : MonoBehaviour {
 
     private TypingPizza typingPizza;
     private Score score;
+    private Truck truck;
     private string pizza = "";
 
 	// Use this for initialization
@@ -13,6 +14,7 @@ public class GameManage : MonoBehaviour {
         pizza = "HWI";
         typingPizza = gameObject.AddComponent<TypingPizza>();
         score = gameObject.AddComponent<Score>();
+        truck = gameObject.AddComponent<Truck>();
         typingPizza.SetPizza(pizza);
     }
 	
