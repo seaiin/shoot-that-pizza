@@ -69,8 +69,11 @@ public class TypingPizza : MonoBehaviour {
 
     public void SetPizza(string pizza)
     {
-        pizzaCode = pizza.ToCharArray();
-        pizzaCodeCount = 0;
+        if (pizza != "")
+        {
+            pizzaCode = pizza.ToCharArray();
+            pizzaCodeCount = 0;
+        }
     }
 
     public bool isTypingFinish()

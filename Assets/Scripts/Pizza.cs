@@ -16,10 +16,7 @@ public class Pizza : MonoBehaviour {
 
     public string getTypeOfPizza () {
         int numType = (int)(Random.Range(0, 5));
-        Debug.Log(numType);
         pizzaCode = typePizza[numType];
-        Debug.Log(pizzaCode);
-
         return pizzaCode;
     }
 }

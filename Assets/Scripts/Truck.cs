@@ -14,4 +14,5 @@ public class Truck : MonoBehaviour {
 	void Update () {
 		
 	}
+
 }
