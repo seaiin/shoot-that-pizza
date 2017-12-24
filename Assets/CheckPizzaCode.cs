@@ -10,7 +10,7 @@ public class CheckPizzaCode : MonoBehaviour {
             //collision.gameObject.SendMessage("getPizza");
             HouseMovement house = collision.gameObject.GetComponent<HouseMovement>();
             string pizza = house.getPizza();
-            Debug.Log("pizza: " + pizza);
+            //Debug.Log("pizza: " + pizza);
 
             gameManage.showPizza(pizza); // Send data pass by method in GameManage
         }

@@ -37,6 +37,7 @@ public class TypingPizza : MonoBehaviour {
             isFinish = true;
             Array.Clear(pizzaCode, 0, pizzaCode.Length);
             isEmptry = true;
+            pizzaCodeCount = 0;
             Debug.Log("Finish!");
         }
     }
@@ -65,7 +66,6 @@ public class TypingPizza : MonoBehaviour {
                 else
                 {
                     pizzaCodeCount = 0;
-                    Debug.Log("Incorrect!");
                 }   
             }
         }
@@ -73,10 +73,10 @@ public class TypingPizza : MonoBehaviour {
 
     public void SetPizza(string pizza)
     {
+        Debug.Log(pizza);
         if (pizza != "")
         {
             pizzaCode = pizza.ToCharArray();
-            pizzaCodeCount = 0;
             isEmptry = false;
         }
     }

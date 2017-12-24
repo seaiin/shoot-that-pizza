@@ -9,7 +9,6 @@ public class CheckCollision : MonoBehaviour {
         if (collision.gameObject.tag == "House") {
             Debug.Log("Hit");
             collision.gameObject.SetActive(false);
-
         }     
     }
 }
