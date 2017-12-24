@@ -12,7 +12,7 @@ public class CheckPizzaCode : MonoBehaviour {
             string pizza = house.getPizza();
             Debug.Log("pizza: " + pizza);
 
-            //gameManage.SendMessage("showPizza", pizza); // Send data pass by method in GameManage
+            gameManage.SendMessage("showPizza", pizza); // Send data pass by method in GameManage
         }
     }
 }
