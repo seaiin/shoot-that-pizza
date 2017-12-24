@@ -7,13 +7,14 @@ public class GameManage : MonoBehaviour {
     public TypingPizza typingPizza;
     public Score score;
     public Truck truck;
+    public GameObject housePrefab;
+    public HouseMovement houseMovement;
 
     private string pizza = "";
+    private Queue<GameObject> houseQueue = new Queue<GameObject>();
 
 	// Use this for initialization
 	void Start () {
-
-        typingPizza.SetPizza(pizza);
 
     }
 	
@@ -22,11 +23,14 @@ public class GameManage : MonoBehaviour {
 
         typingPizza.TypeUpdate();
 
-        if (typingPizza.isTypingFinish())
-        {
-            score.SetScore(100);
-            typingPizza.SetPizza(pizza);
-        }
-
 	}
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "House")
+        {
+            housePrefab = collision.gameObject;
+            houseQueue.Enqueue(housePrefab);
+        }
+    }
 }
