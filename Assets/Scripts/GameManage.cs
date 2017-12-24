@@ -12,19 +12,34 @@ public class GameManage : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+        
     }
 	
 	// Update is called once per frame
 	void Update () {
 
         typingPizza.TypeUpdate();
+        
+        if (typingPizza.isTypingFinish())
+        {
+            score.SetScore(100);
+            typingPizza.SetNotFinish();
+        }
+
+        if (typingPizza.isTypingEmp())
+        {
+            if (pizzaCodeQueue.Count > 0)
+            {
+                typingPizza.SetPizza(pizzaCodeQueue.Dequeue());
+            }
+        }
+        
 
 	}
 
     public void showPizza(string pizzaCode)
     {
         pizzaCodeQueue.Enqueue(pizzaCode);
-        Debug.Log(pizzaCode);
     }
+
 }

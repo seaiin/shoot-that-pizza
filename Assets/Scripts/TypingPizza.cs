@@ -10,6 +10,7 @@ public class TypingPizza : MonoBehaviour {
     private int pizzaCodeCount;
     private string input;
     private bool isFinish = false;
+    private bool isEmptry = true;
 
     private string detectPressedKey()
     {
@@ -34,12 +35,15 @@ public class TypingPizza : MonoBehaviour {
         if (pizzaCodeCount >= pizzaCode.Length)
         {
             isFinish = true;
+            Array.Clear(pizzaCode, 0, pizzaCode.Length);
+            isEmptry = true;
             Debug.Log("Finish!");
         }
-        else
-        {
-            isFinish = false;
-        }
+    }
+    
+    public void SetNotFinish()
+    {
+        isFinish = false;
     }
 
     private void CheckInput()
@@ -73,12 +77,18 @@ public class TypingPizza : MonoBehaviour {
         {
             pizzaCode = pizza.ToCharArray();
             pizzaCodeCount = 0;
+            isEmptry = false;
         }
     }
 
     public bool isTypingFinish()
     {
         return isFinish;
+    }
+
+    public bool isTypingEmp()
+    {
+        return isEmptry;
     }
 
     public void TypeUpdate()
