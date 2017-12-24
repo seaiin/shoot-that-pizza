@@ -29,10 +29,12 @@ public class ObjectPooling : MonoBehaviour {
             //2 check item in list that not active currently
             if (!pooledObjects[i].activeInHierarchy)
             {
+                Debug.Log("have inactive object: " + i);
                 return pooledObjects[i];
             }
         }
         //3 if there are no inactive object. Exit method and return nothing
+        Debug.Log("No one inactive");
         return null;
     }
 }

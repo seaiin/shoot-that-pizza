@@ -23,6 +23,11 @@ public class HouseMovement : MonoBehaviour {
 
     void Update () {
         transform.position += Vector3.left * speed * Time.deltaTime;
+
+        if (transform.position.x <= leftmost.x) {
+            transform.position = new Vector3(rightmost.x + 2f, 0, 0);
+            gameObject.SetActive(false);
+        }
     }
 
     private void setPizza () {
@@ -31,6 +36,7 @@ public class HouseMovement : MonoBehaviour {
 
     public void showType () {
         Debug.Log(pizzaType);
+        //Debug.Log("Hello");
     }
 
     public string getPizza () {
