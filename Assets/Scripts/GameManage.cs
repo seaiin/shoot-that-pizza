@@ -39,6 +39,7 @@ public class GameManage : MonoBehaviour {
 
     public void showPizza(string pizzaCode)
     {
+        Debug.Log(pizzaCode);
         pizzaCodeQueue.Enqueue(pizzaCode);
     }
 
