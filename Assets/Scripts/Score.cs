@@ -1,15 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Score : MonoBehaviour {
 
     private int score = 0;
+    public TextMeshProUGUI scoreText;
 
     public void SetScore(int point)
     {
         score += point;
-        Debug.Log(score);
+        scoreText.SetText("score : " + score);
     }
 
     public void ResetScore()
@@ -24,11 +26,10 @@ public class Score : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		scoreText = GetComponent<TextMeshProUGUI>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+    }
 }
