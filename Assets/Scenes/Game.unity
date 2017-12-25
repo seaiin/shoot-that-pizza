@@ -387,11 +387,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dc1f753dccf02946bc02952777d8406, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemsToPool:
+  - amountToPool: 3
+    objectToPool: {fileID: 1520656519257870, guid: 709ab4360ac32d140a09fbef2bd6b8ce,
+      type: 2}
+    shouldExpand: 1
+  - amountToPool: 3
+    objectToPool: {fileID: 1204634616658948, guid: 746182e27f6aac344a696b267cd8f7b7,
+      type: 2}
+    shouldExpand: 1
+  - amountToPool: 3
+    objectToPool: {fileID: 1678005656895148, guid: 92a1f8c84d15af44bb6991f943a725b4,
+      type: 2}
+    shouldExpand: 1
+  - amountToPool: 2
+    objectToPool: {fileID: 1118654093536254, guid: 1a26f2d193f4502449e3d85d827192e6,
+      type: 2}
+    shouldExpand: 0
+  - amountToPool: 2
+    objectToPool: {fileID: 1578177456853166, guid: 689763886687e6e488c539c0d405131a,
+      type: 2}
+    shouldExpand: 0
   pooledObjects: []
-  objectToPool: {fileID: 1520656519257870, guid: 485786c929b2efe45a7053026a30c8f7,
-    type: 2}
-  amountToPool: 10
-  shouldExpand: 1
 --- !u!1 &602321533
 GameObject:
   m_ObjectHideFlags: 0

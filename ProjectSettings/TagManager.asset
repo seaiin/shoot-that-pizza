@@ -7,6 +7,11 @@ TagManager:
   - LeftBound
   - Boundary
   - House
+  - House1
+  - House2
+  - House3
+  - House4
+  - House5
   layers:
   - Default
   - TransparentFX
