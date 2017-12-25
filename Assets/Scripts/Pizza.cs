@@ -8,10 +8,10 @@ public class Pizza : MonoBehaviour {
 
     void Start() {
         typePizza.Add(0, "HWI");
-        typePizza.Add(1, "ITM");
-        typePizza.Add(2, "PRM");
-        typePizza.Add(3, "MLV");
-        typePizza.Add(4, "BBQ");
+        typePizza.Add(1, "MBL");
+        typePizza.Add(2, "PEP");
+        typePizza.Add(3, "SEA");
+        typePizza.Add(4, "SPN");
     }
 
     public string getTypeOfPizza () {
