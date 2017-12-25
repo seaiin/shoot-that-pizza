@@ -5,26 +5,35 @@ using TMPro;
 
 public class TypingTab : MonoBehaviour {
 
-    public TextMeshProUGUI typingText;
+    public List<TextMeshProUGUI> typeCharList;
 
-    private string typingChar;
-    private int typingCount;
 
     public void SetTypingChar(char[] typing)
     {
-        typingChar = new string(typing);
-        typingText.SetText(typingChar + " : " + typingCount);
+        for (int i = 0; i < 3; i++)
+        {
+            typeCharList[i].text = typing[i].ToString();
+        }
     }
 
     public void SetTypingCount(int count)
     {
-        typingCount = count;
-        typingText.SetText(typingChar + " : " + typingCount);
+        if (count == 0)
+        { 
+            for (int i = 0; i < 3; i++)
+            {
+                typeCharList[i].color = Color.white;
+            }
+        } else
+        {
+            typeCharList[count - 1].color = Color.green;
+        }
+
     }
 
 	// Use this for initialization
 	void Start () {
-        typingText = GetComponent<TextMeshProUGUI>();
+
 	}
 	
 	// Update is called once per frame
