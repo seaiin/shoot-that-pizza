@@ -77,6 +77,7 @@ public class TypingPizza : MonoBehaviour {
             pizzaCode = pizza.ToCharArray();
             isEmptry = false;
             typingTab.SetTypingChar(pizzaCode);
+            typingTab.SetTypingCount(pizzaCodeCount);
         }
     }
 
