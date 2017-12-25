@@ -10,12 +10,6 @@ public class GameManage : MonoBehaviour {
 
     private Queue<string> pizzaCodeQueue = new Queue<string>();
 
-	// Use this for initialization
-	void Start () {
-        
-    }
-	
-	// Update is called once per frame
 	void Update () {
 
         typingPizza.TypeUpdate();
@@ -33,13 +27,10 @@ public class GameManage : MonoBehaviour {
                 typingPizza.SetPizza(pizzaCodeQueue.Dequeue());
             }
         }
-        
-
 	}
 
     public void showPizza(string pizzaCode)
     {
-        Debug.Log(pizzaCode);
         pizzaCodeQueue.Enqueue(pizzaCode);
     }
 

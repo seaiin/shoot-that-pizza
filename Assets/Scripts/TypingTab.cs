@@ -33,16 +33,5 @@ public class TypingTab : MonoBehaviour {
 
             typeCharList[count - 1].color = color;
         }
-
     }
-
-	// Use this for initialization
-	void Start () {
-
-	}
-	
-	// Update is called once per frame
-	void Update () {
-
-	}
 }
