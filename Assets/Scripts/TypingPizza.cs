@@ -12,6 +12,8 @@ public class TypingPizza : MonoBehaviour {
     private bool isFinish = false;
     private bool isEmptry = true;
 
+    public TypingTab typingTab;
+
     private string detectPressedKey()
     {
         foreach (KeyCode kcode in Enum.GetValues(typeof(KeyCode)))
@@ -32,14 +34,12 @@ public class TypingPizza : MonoBehaviour {
 
     private void SetFinish()
     {
-        if (pizzaCodeCount >= pizzaCode.Length)
-        {
-            isFinish = true;
-            Array.Clear(pizzaCode, 0, pizzaCode.Length);
-            isEmptry = true;
-            pizzaCodeCount = 0;
-            Debug.Log("Finish!");
-        }
+        isFinish = true;
+        Array.Clear(pizzaCode, 0, pizzaCode.Length);
+        isEmptry = true;
+        pizzaCodeCount = 0;
+        typingTab.SetTypingCount(pizzaCodeCount);
+        typingTab.SetTypingChar(pizzaCode);
     }
     
     public void SetNotFinish()
@@ -54,30 +54,29 @@ public class TypingPizza : MonoBehaviour {
             if (input[0] == pizzaCode[pizzaCodeCount])
             {
                 pizzaCodeCount++;
-                Debug.Log("Correct! - " + pizzaCodeCount);
             }
             else
             { 
                 if (input[0] == pizzaCode[0] && pizzaCodeCount == 1)
                 {
                     pizzaCodeCount = 1;
-                    Debug.Log("Correct! - " + pizzaCodeCount);
                 }
                 else
                 {
                     pizzaCodeCount = 0;
                 }   
             }
+            typingTab.SetTypingCount(pizzaCodeCount);
         }
     }
 
     public void SetPizza(string pizza)
     {
-        Debug.Log(pizza);
         if (pizza != "")
         {
             pizzaCode = pizza.ToCharArray();
             isEmptry = false;
+            typingTab.SetTypingChar(pizzaCode);
         }
     }
 
@@ -91,22 +90,24 @@ public class TypingPizza : MonoBehaviour {
         return isEmptry;
     }
 
+    public char[] GetPizza()
+    {
+        return pizzaCode;
+    }
+
     public void TypeUpdate()
     {
-        GetInput();
-        CheckInput();
-        SetFinish();
+        if (detectPressedKey() != "")
+        {
+            GetInput();
+            CheckInput();
+        }
+
+        if (pizzaCodeCount >= pizzaCode.Length)
+        {
+            SetFinish();
+        }
+   
     }
-
-
-    // Use this for initialization
-    void Start () {
-
-    }
-	
-	// Update is called once per frame
-	void Update () {
-        
-	}
 
 }
