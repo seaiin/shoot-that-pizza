@@ -8,6 +8,7 @@ public class ObjectPooling : MonoBehaviour {
     public List<GameObject> pooledObjects;
     public GameObject objectToPool;
     public int amountToPool;
+    public bool shouldExpand = true; // can expand when run out of house
 
     void Awake () {
         SharedInstance = this;
@@ -34,7 +35,13 @@ public class ObjectPooling : MonoBehaviour {
             }
         }
         //3 if there are no inactive object. Exit method and return nothing
-        Debug.Log("No one inactive");
-        return null;
+        if (shouldExpand) {
+            GameObject obj = (GameObject)Instantiate(objectToPool);
+            obj.SetActive(false);
+            pooledObjects.Add(obj);
+            return obj;
+        } else {
+            return null;
+        }
     }
 }
