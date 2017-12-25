@@ -9,7 +9,6 @@ public class HouseMovement : MonoBehaviour {
     private float speed = 3f;
     private Vector3 leftmost;
     private Vector3 rightmost;
-    private bool readyType = false;
 
     void Start () {
         float distance = transform.position.z - Camera.main.transform.position.z;
@@ -43,8 +42,4 @@ public class HouseMovement : MonoBehaviour {
         return pizzaType;
     }
 
-    public void ReadyToType()
-    {
-        readyType = true;
-    }
 }
