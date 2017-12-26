@@ -10,6 +10,7 @@ public class HouseMovement : MonoBehaviour {
 
     private string pizzaType;
     private float padding = 1f;
+    private float startPoint;
     private Vector3 leftmost;
     private Vector3 rightmost;
 
@@ -18,7 +19,7 @@ public class HouseMovement : MonoBehaviour {
         leftmost = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, distance));
         rightmost = Camera.main.ViewportToWorldPoint(new Vector3(1, 0, distance));
 
-        float startPoint = rightmost.x + padding;
+        startPoint = rightmost.x + padding;
         transform.position = new Vector3(startPoint, transform.position.y, transform.position.z);
  
         setPizza();
@@ -32,7 +33,7 @@ public class HouseMovement : MonoBehaviour {
         transform.position += Vector3.left * speed * Time.deltaTime;
 
         if (transform.position.x <= leftmost.x) {
-            transform.position = new Vector3(rightmost.x + 2f, 0, 0);
+            transform.position = new Vector3(startPoint, transform.position.y, transform.position.z);
             gameObject.SetActive(false);
         }
     }

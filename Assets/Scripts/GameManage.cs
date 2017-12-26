@@ -7,15 +7,15 @@ public class GameManage : MonoBehaviour {
     public TypingPizza typingPizza;
     public Score score;
     public Truck truck;
-    public float houseSpeed = 1f;
+    public float houseSpeed = 1.5f;
     public float mul = 1.1f;
 
     private bool canUpSpeed = true;
     private Queue<GameObject> houseQueue = new Queue<GameObject>();
     private HouseMovement house;
     private string pizzaCode;
-    private float minTime = 5f;
-    private float maxTime = 7f;
+    private float minTime = 1.5f;
+    private float maxTime = 6f;
     private float time;
     private float spawnTime;
     private static Dictionary<int, string> tagHouse = new Dictionary<int, string>();
@@ -71,11 +71,25 @@ public class GameManage : MonoBehaviour {
     {
         if (score.GetScore() != 0 && score.GetScore() % 500 == 0 && canUpSpeed) {
             houseSpeed *= mul;
+            setMinMaxTime();   
             canUpSpeed = false;
         } else {
             if (score.GetScore() % 500 != 0) {
                 canUpSpeed = true;
             }
+        }
+    }
+
+    private void setMinMaxTime ()
+    {
+        if (minTime > 0.1)
+        {
+            minTime /= mul;
+        }
+
+        if (maxTime > 0.3)
+        {
+            maxTime /= mul;
         }
     }
 
