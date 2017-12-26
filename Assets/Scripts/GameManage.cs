@@ -35,10 +35,7 @@ public class GameManage : MonoBehaviour {
         if (typingPizza.isTypingFinish())
         {
             score.SetScore(100);
-            for (int i = 0; i < house.transform.childCount; i++)
-            {
-                house.transform.GetChild(i).gameObject.SetActive(false);
-            }
+            SetInactiveOrder();
             SendingPizza();
             typingPizza.SetNotFinish();
         }
@@ -58,13 +55,7 @@ public class GameManage : MonoBehaviour {
 
     void FixedUpdate()
     {
-        time += Time.deltaTime;
-
-        if (time >= spawnTime)
-        {
-            houseSpawn();
-            setSpawnTime();
-        }
+        TimerForSpawn();
     }
 
     public void enqueueHouse(GameObject houseObject)
@@ -82,6 +73,14 @@ public class GameManage : MonoBehaviour {
             if (score.GetScore() % 500 != 0) {
                 canUpSpeed = true;
             }
+        }
+    }
+
+    private void SetInactiveOrder ()
+    {
+        for (int i = 0; i < house.transform.childCount; i++)
+        {
+            house.transform.GetChild(i).gameObject.SetActive(false);
         }
     }
 
@@ -128,6 +127,17 @@ public class GameManage : MonoBehaviour {
         if (house != null)
         {
             house.SetActive(true);
+        }
+    }
+
+    private void TimerForSpawn ()
+    {
+        time += Time.deltaTime;
+
+        if (time >= spawnTime)
+        {
+            houseSpawn();
+            setSpawnTime();
         }
     }
 
