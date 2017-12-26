@@ -58,4 +58,9 @@ public class PizzaTab : MonoBehaviour {
                 break;
         }
     }
+
+    public Sprite getCompletePizza ()
+    {
+        return comSprite[index];
+    }
 }

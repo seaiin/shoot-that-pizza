@@ -35,6 +35,7 @@ public class GameManage : MonoBehaviour {
         if (typingPizza.isTypingFinish())
         {
             score.SetScore(100);
+            SendingPizza();
             typingPizza.SetNotFinish();
         }
 
@@ -108,6 +109,17 @@ public class GameManage : MonoBehaviour {
         if (house != null)
         {
             house.SetActive(true);
+        }
+    }
+
+    private void SendingPizza()
+    {
+        GameObject pizzaSend = ObjectPooling.SharedInstance.GetPooledObject("SendingPizza");
+        SpriteRenderer pizzaSprite = pizzaSend.GetComponent<SpriteRenderer>();
+        pizzaSprite.sprite = typingPizza.getCompletePizza();
+        if (pizzaSend != null)
+        {
+            pizzaSend.SetActive(true);
         }
     }
 }

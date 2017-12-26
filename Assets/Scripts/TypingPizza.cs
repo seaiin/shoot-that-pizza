@@ -114,4 +114,8 @@ public class TypingPizza : MonoBehaviour {
    
     }
 
+    public Sprite getCompletePizza ()
+    {
+        return pizzaTab.getCompletePizza();
+    }
 }
