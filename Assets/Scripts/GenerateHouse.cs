@@ -39,8 +39,6 @@ public class GenerateHouse : MonoBehaviour {
         tagString = tagHouse[tagNum];
 
         GameObject house = ObjectPooling.SharedInstance.GetPooledObject(tagString);
-        //HouseMovement houseObject = house.GetComponent<HouseMovement>();
-        //houseObject.showType();
 
         if (house != null) {
             house.SetActive(true);

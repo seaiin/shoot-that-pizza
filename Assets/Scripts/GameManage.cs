@@ -9,13 +9,26 @@ public class GameManage : MonoBehaviour {
     public Truck truck;
     public float houseSpeed = 1f;
     public float mul = 1.1f;
-    private bool canUpSpeed = true;
 
+    private bool canUpSpeed = true;
     private Queue<GameObject> houseQueue = new Queue<GameObject>();
     private HouseMovement house;
     private string pizzaCode;
+    private float minTime = 5f;
+    private float maxTime = 7f;
+    private float time;
+    private float spawnTime;
+    private static Dictionary<int, string> tagHouse = new Dictionary<int, string>();
+    private string tagString = "House1";
 
-	void Update () {
+    void Start()
+    {
+        initTagHouse();
+        setSpawnTime();
+        time = minTime;
+    }
+
+    void Update () {
 
         typingPizza.TypeUpdate();
         
@@ -37,6 +50,17 @@ public class GameManage : MonoBehaviour {
         }
 	}
 
+    void FixedUpdate()
+    {
+        time += Time.deltaTime;
+
+        if (time >= spawnTime)
+        {
+            houseSpawn();
+            setSpawnTime();
+        }
+    }
+
     public void enqueueHouse(GameObject houseObject)
     {
         houseQueue.Enqueue(houseObject);
@@ -44,7 +68,7 @@ public class GameManage : MonoBehaviour {
 
     public void SetSpeed ()
     {
-        if (score.GetScore() % 500 == 0 && canUpSpeed) {
+        if (score.GetScore() != 0 && score.GetScore() % 500 == 0 && canUpSpeed) {
             houseSpeed *= mul;
             canUpSpeed = false;
         } else {
@@ -57,5 +81,33 @@ public class GameManage : MonoBehaviour {
     public float GetSpeed ()
     {
         return houseSpeed;
+    }
+
+    private void initTagHouse ()
+    {
+        tagHouse.Add(0, "House1");
+        tagHouse.Add(1, "House2");
+        tagHouse.Add(2, "House3");
+        tagHouse.Add(3, "House4");
+        tagHouse.Add(4, "House5");
+    }
+
+    private void setSpawnTime ()
+    {
+        spawnTime = Random.Range(minTime, maxTime);
+    }
+
+    private void houseSpawn()
+    {
+        time = 0;
+        int tagNum = (int)(Random.Range(0, 5));
+        tagString = tagHouse[tagNum];
+
+        GameObject house = ObjectPooling.SharedInstance.GetPooledObject(tagString);
+
+        if (house != null)
+        {
+            house.SetActive(true);
+        }
     }
 }

@@ -321,71 +321,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &575097032
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 575097033}
-  - component: {fileID: 626669871}
-  - component: {fileID: 575097034}
-  m_Layer: 0
-  m_Name: GenerateHouse
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &575097033
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 575097032}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &575097034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 575097032}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dc1f753dccf02946bc02952777d8406, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemsToPool:
-  - amountToPool: 3
-    objectToPool: {fileID: 1443875041699552, guid: 6a169617f81087141bb9085e4d385d4a,
-      type: 2}
-    shouldExpand: 1
-  - amountToPool: 3
-    objectToPool: {fileID: 1555337028544982, guid: c79aef0d200aad74ab31069d12170e53,
-      type: 2}
-    shouldExpand: 1
-  - amountToPool: 3
-    objectToPool: {fileID: 1256325933590580, guid: c33c63c0ad2b9b043a93f0e5108d455f,
-      type: 2}
-    shouldExpand: 1
-  - amountToPool: 2
-    objectToPool: {fileID: 1623636931508294, guid: a691596d5f8af414580b6e7bb78b7b84,
-      type: 2}
-    shouldExpand: 0
-  - amountToPool: 2
-    objectToPool: {fileID: 1784169526190842, guid: aefdb81a4e0cf2f48a28822ca6d60a90,
-      type: 2}
-    shouldExpand: 0
-  pooledObjects: []
 --- !u!1 &602321533
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,28 +389,13 @@ RectTransform:
   - {fileID: 1315457546}
   - {fileID: 121049801}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &626669871
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 575097032}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4025d5835bd721498395d14c29fe160, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  housePrefab: {fileID: 1520656519257870, guid: 485786c929b2efe45a7053026a30c8f7,
-    type: 2}
-  minTime: 1
-  maxTime: 3
 --- !u!1 &644426793
 GameObject:
   m_ObjectHideFlags: 0
@@ -517,7 +439,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &720052674
 Prefab:
@@ -661,7 +583,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &777150015
 SpriteRenderer:
@@ -756,7 +678,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4295837137319640, guid: 8e141a423652dcd4a8e55845f8c66517, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8e141a423652dcd4a8e55845f8c66517, type: 2}
@@ -923,6 +845,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1014756837}
   - component: {fileID: 1014756836}
+  - component: {fileID: 1014756838}
   m_Layer: 0
   m_Name: GameManage
   m_TagString: GameManager
@@ -959,6 +882,39 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1014756838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1014756835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dc1f753dccf02946bc02952777d8406, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemsToPool:
+  - amountToPool: 3
+    objectToPool: {fileID: 1443875041699552, guid: 6a169617f81087141bb9085e4d385d4a,
+      type: 2}
+    shouldExpand: 1
+  - amountToPool: 3
+    objectToPool: {fileID: 1555337028544982, guid: c79aef0d200aad74ab31069d12170e53,
+      type: 2}
+    shouldExpand: 1
+  - amountToPool: 3
+    objectToPool: {fileID: 1256325933590580, guid: c33c63c0ad2b9b043a93f0e5108d455f,
+      type: 2}
+    shouldExpand: 1
+  - amountToPool: 2
+    objectToPool: {fileID: 1623636931508294, guid: a691596d5f8af414580b6e7bb78b7b84,
+      type: 2}
+    shouldExpand: 0
+  - amountToPool: 2
+    objectToPool: {fileID: 1784169526190842, guid: aefdb81a4e0cf2f48a28822ca6d60a90,
+      type: 2}
+    shouldExpand: 0
+  pooledObjects: []
 --- !u!1 &1071220066
 GameObject:
   m_ObjectHideFlags: 0
@@ -1327,7 +1283,7 @@ Transform:
   - {fileID: 118748609}
   - {fileID: 1071220068}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1732216015
 GameObject:
