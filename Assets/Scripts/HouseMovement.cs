@@ -50,4 +50,7 @@ public class HouseMovement : MonoBehaviour {
         return pizzaType;
     }
 
+    public GameObject getHouse () {
+        return gameObject;
+    }
 }

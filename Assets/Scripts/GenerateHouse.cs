@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GenerateHouse : MonoBehaviour {
     public GameObject housePrefab;
-    public float minTime = 1f;
-    public float maxTime = 3f;
+    public float minTime = 5f;
+    public float maxTime = 7f;
 
     private float time;
     private float spawnTime;

@@ -12,12 +12,7 @@ public class CheckPizzaCode : MonoBehaviour {
                         || collision.gameObject.tag == "House4"
                         || collision.gameObject.tag == "House5";
         if (checkTag) {
-            //collision.gameObject.SendMessage("getPizza");
-            HouseMovement house = collision.gameObject.GetComponent<HouseMovement>();
-            string pizza = house.getPizza();
-            //Debug.Log("pizza: " + pizza);
-
-            gameManage.showPizza(pizza); // Send data pass by method in GameManage
+            gameManage.enqueueHouse(collision.gameObject); // Send data pass by method in GameManage
         }
     }
 }

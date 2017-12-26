@@ -11,7 +11,9 @@ public class GameManage : MonoBehaviour {
     public float mul = 1.1f;
     private bool canUpSpeed = true;
 
-    private Queue<string> pizzaCodeQueue = new Queue<string>();
+    private Queue<GameObject> houseQueue = new Queue<GameObject>();
+    private HouseMovement house;
+    private string pizzaCode;
 
 	void Update () {
 
@@ -27,16 +29,17 @@ public class GameManage : MonoBehaviour {
 
         if (typingPizza.isTypingEmp())
         {
-            if (pizzaCodeQueue.Count > 0)
+            if (houseQueue.Count > 0)
             {
-                typingPizza.SetPizza(pizzaCodeQueue.Dequeue());
+                house = houseQueue.Dequeue().GetComponent<HouseMovement>();
+                typingPizza.SetPizza(house.getPizza());
             }
         }
 	}
 
-    public void showPizza(string pizzaCode)
+    public void enqueueHouse(GameObject houseObject)
     {
-        pizzaCodeQueue.Enqueue(pizzaCode);
+        houseQueue.Enqueue(houseObject);
     }
 
     public void SetSpeed ()
