@@ -12,7 +12,7 @@ public class GameManage : MonoBehaviour {
 
     private bool canUpSpeed = true;
     private Queue<GameObject> houseQueue = new Queue<GameObject>();
-    private HouseMovement house;
+    private GameObject house;
     private string pizzaCode;
     private float minTime = 1.5f;
     private float maxTime = 6f;
@@ -35,6 +35,10 @@ public class GameManage : MonoBehaviour {
         if (typingPizza.isTypingFinish())
         {
             score.SetScore(100);
+            for (int i = 0; i < house.transform.childCount; i++)
+            {
+                house.transform.GetChild(i).gameObject.SetActive(false);
+            }
             SendingPizza();
             typingPizza.SetNotFinish();
         }
@@ -45,8 +49,9 @@ public class GameManage : MonoBehaviour {
         {
             if (houseQueue.Count > 0)
             {
-                house = houseQueue.Dequeue().GetComponent<HouseMovement>();
-                typingPizza.SetPizza(house.getPizza());
+                house = houseQueue.Dequeue();
+                pizzaCode = house.GetComponent<HouseMovement>().getPizza();
+                typingPizza.SetPizza(pizzaCode);
             }
         }
 	}
