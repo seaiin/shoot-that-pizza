@@ -13,6 +13,7 @@ public class TypingPizza : MonoBehaviour {
     private bool isEmptry = true;
 
     public TypingTab typingTab;
+    public PizzaTab pizzaTab;
 
     private string detectPressedKey()
     {
@@ -67,6 +68,7 @@ public class TypingPizza : MonoBehaviour {
                 }   
             }
             typingTab.SetTypingCount(pizzaCodeCount);
+            pizzaTab.ChangedSprite(pizzaCodeCount);
         }
     }
 
@@ -78,6 +80,7 @@ public class TypingPizza : MonoBehaviour {
             isEmptry = false;
             typingTab.SetTypingChar(pizzaCode);
             typingTab.SetTypingCount(pizzaCodeCount);
+            pizzaTab.SetPizza(pizza);
         }
     }
 
