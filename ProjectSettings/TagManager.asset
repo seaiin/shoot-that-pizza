@@ -12,6 +12,8 @@ TagManager:
   - House3
   - House4
   - House5
+  - Score
+  - GameManager
   layers:
   - Default
   - TransparentFX
