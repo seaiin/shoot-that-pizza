@@ -9,6 +9,7 @@ public class GameManage : MonoBehaviour {
     public Truck truck;
     public float houseSpeed = 1.5f;
     public float mul = 1.1f;
+    public bool gameRunning = true;
 
     private bool canUpSpeed = true;
     private Queue<GameObject> houseQueue = new Queue<GameObject>();
@@ -35,6 +36,7 @@ public class GameManage : MonoBehaviour {
         if (typingPizza.isTypingFinish())
         {
             score.SetScore(100);
+            house.GetComponent<HouseMovement>().ReceiveOrder();
             SetInactiveOrder();
             SendingPizza();
             typingPizza.SetNotFinish();
