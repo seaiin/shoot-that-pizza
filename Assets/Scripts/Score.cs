@@ -11,7 +11,7 @@ public class Score : MonoBehaviour {
     public void SetScore(int point)
     {
         score += point;
-        scoreText.SetText("score : " + score);
+        scoreText.SetText("SCORE : " + score);
     }
 
     public void ResetScore()
