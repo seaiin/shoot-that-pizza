@@ -12,6 +12,7 @@ public class GameOverCheck : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log(collision.gameObject.tag);
         bool checkTag = collision.gameObject.tag == "House1"
                         || collision.gameObject.tag == "House2"
                         || collision.gameObject.tag == "House3"
@@ -19,6 +20,7 @@ public class GameOverCheck : MonoBehaviour {
                         || collision.gameObject.tag == "House5";
         if (checkTag && collision.gameObject.GetComponent<HouseMovement>().HasOrder())
         {
+            Debug.Log(transform.position);
             Debug.Log("Game Over");
             gameManage.gameRunning = false;
         }

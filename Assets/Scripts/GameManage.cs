@@ -129,6 +129,11 @@ public class GameManage : MonoBehaviour {
         if (house != null)
         {
             house.SetActive(true);
+
+            for (int i = 0; i < house.transform.childCount; i++)
+            {
+                house.transform.GetChild(i).gameObject.SetActive(true);
+            }
         }
     }
 

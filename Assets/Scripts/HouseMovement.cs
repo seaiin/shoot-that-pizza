@@ -30,8 +30,8 @@ public class HouseMovement : MonoBehaviour {
 	}
 
     void Update () {
-        if(gameManage.gameRunning)
-        {
+        //if(gameManage.gameRunning)
+        //{
             speed = gameManage.GetSpeed();
             transform.position += Vector3.left * speed * Time.deltaTime;
 
@@ -40,7 +40,7 @@ public class HouseMovement : MonoBehaviour {
                 transform.position = new Vector3(startPoint, transform.position.y, transform.position.z);
                 gameObject.SetActive(false);
             }
-        }
+        //}
     }
 
     private void setPizza () {
