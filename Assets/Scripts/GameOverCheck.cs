@@ -5,6 +5,11 @@ using UnityEngine;
 public class GameOverCheck : MonoBehaviour {
     public GameManage gameManage;
 
+    void Start()
+    {
+        gameManage = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManage>();
+    }
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         bool checkTag = collision.gameObject.tag == "House1"
