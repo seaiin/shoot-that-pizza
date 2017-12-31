@@ -147,9 +147,11 @@ public class GameManage : MonoBehaviour {
     {
         GameObject pizzaSend = ObjectPooling.SharedInstance.GetPooledObject("SendingPizza");
         SpriteRenderer pizzaSprite = pizzaSend.GetComponent<SpriteRenderer>();
+        PizzaSending pizzaSending = (PizzaSending)pizzaSend.GetComponent(typeof(PizzaSending));
         pizzaSprite.sprite = typingPizza.getCompletePizza();
         if (pizzaSend != null)
         {
+            pizzaSending.SetHouse(house);
             pizzaSend.SetActive(true);
         }
     }
