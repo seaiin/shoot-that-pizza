@@ -13,12 +13,16 @@ public class TypingPizza : MonoBehaviour {
     private bool isFinish = false;
     private bool isEmptry = true;
     private bool isEnd = false;
+    private AudioClip[] audioClip;
 
     public TypingTab typingTab;
     public PizzaTab pizzaTab;
     public AudioSource audioSource;
-    public AudioClip wrong;
-    public AudioClip typing1;
+
+    void Start()
+    {
+        audioClip = Resources.LoadAll<AudioClip>("Typing");
+    }
 
     private string detectPressedKey()
     {
@@ -60,12 +64,15 @@ public class TypingPizza : MonoBehaviour {
             if (input[0] == pizzaCode[pizzaCodeCount])
             {
                 pizzaCodeCount++;
-                audioSource.PlayOneShot(typing1);
+                if (pizzaCodeCount < 3)
+                {
+                    audioSource.PlayOneShot(audioClip[1]);
+                }
             }
             else
             {
                 pizzaCodeCount = 0;
-                audioSource.PlayOneShot(wrong);
+                audioSource.PlayOneShot(audioClip[2]);
             }
             typingTab.SetTypingCount(pizzaCodeCount);
             if (!isEnd)
@@ -122,6 +129,7 @@ public class TypingPizza : MonoBehaviour {
             else
             {
                 SetFinish();
+                audioSource.PlayOneShot(audioClip[0]);
             }
         }
    
