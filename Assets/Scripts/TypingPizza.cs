@@ -82,6 +82,27 @@ public class TypingPizza : MonoBehaviour {
         }
     }
 
+    private void CheckInputDemo()
+    {
+        if (Regex.IsMatch(input, @"^[A-Z]+$"))
+        {
+            if (input[0] == pizzaCode[pizzaCodeCount])
+            {
+                pizzaCodeCount++;
+                if (pizzaCodeCount < 3)
+                {
+                    audioSource.PlayOneShot(audioClip[1]);
+                }
+            }
+            else
+            {
+                pizzaCodeCount = 0;
+                audioSource.PlayOneShot(audioClip[2]);
+            }
+            typingTab.SetTypingCount(pizzaCodeCount);
+        }
+    }
+
     public void SetPizza(string pizza)
     {
         if (pizza != "")
@@ -94,6 +115,17 @@ public class TypingPizza : MonoBehaviour {
             {
                pizzaTab.SetPizza(pizza);
             }
+        }
+    }
+
+    public void SetPizzaDemo(string pizza)
+    {
+        if (pizza != "")
+        {
+            pizzaCode = pizza.ToCharArray();
+            isEmptry = false;
+            typingTab.SetTypingChar(pizzaCode);
+            typingTab.SetTypingCount(pizzaCodeCount);
         }
     }
 
@@ -133,6 +165,29 @@ public class TypingPizza : MonoBehaviour {
             }
         }
    
+    }
+
+    public void TypeUpdateDemo()
+    {
+        if (detectPressedKey() != "")
+        {
+            GetInput();
+            CheckInputDemo();
+        }
+
+        if (pizzaCodeCount >= pizzaCode.Length)
+        {
+            if (isEnd)
+            {
+                SceneManager.LoadScene("Start");
+            }
+            else
+            {
+                SetFinish();
+                audioSource.PlayOneShot(audioClip[0]);
+            }
+        }
+
     }
 
     public Sprite getCompletePizza ()
