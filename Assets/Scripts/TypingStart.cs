@@ -6,12 +6,18 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class TypingStart : MonoBehaviour {
+    public AudioSource audioSource;
+    public TypingTab typingTab;
 
     private char[] pizzaCode = new char[10];
     private int pizzaCodeCount;
     private string input;
+    private AudioClip[] audioClip;
 
-    public TypingTab typingTab;
+    void Start()
+    {
+        audioClip = Resources.LoadAll<AudioClip>("Typing");
+    }
 
     private string detectPressedKey()
     {
@@ -43,9 +49,14 @@ public class TypingStart : MonoBehaviour {
             if (input[0] == pizzaCode[pizzaCodeCount])
             {
                 pizzaCodeCount++;
+                if (pizzaCodeCount < 3)
+                {
+                    audioSource.PlayOneShot(audioClip[1]);
+                }
             }
             else
             {
+                audioSource.PlayOneShot(audioClip[2]);
                 if (input[0] == pizzaCode[0] && pizzaCodeCount == 1)
                 {
                     pizzaCodeCount = 1;
@@ -70,6 +81,7 @@ public class TypingStart : MonoBehaviour {
 
         if (pizzaCodeCount >= pizzaCode.Length)
         {
+            audioSource.PlayOneShot(audioClip[0]);
             SetFinish();
         }
     }
