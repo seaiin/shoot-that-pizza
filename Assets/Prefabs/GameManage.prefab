@@ -1,0 +1,97 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1197969241442672}
+  m_IsPrefabParent: 1
+--- !u!1 &1197969241442672
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4008911026397116}
+  - component: {fileID: 114631259082954534}
+  - component: {fileID: 114539255789193418}
+  m_Layer: 0
+  m_Name: GameManage
+  m_TagString: GameManager
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4008911026397116
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1197969241442672}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.52, y: 0.8, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114539255789193418
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1197969241442672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dc1f753dccf02946bc02952777d8406, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemsToPool:
+  - amountToPool: 3
+    objectToPool: {fileID: 1443875041699552, guid: 6a169617f81087141bb9085e4d385d4a,
+      type: 2}
+    shouldExpand: 1
+  - amountToPool: 3
+    objectToPool: {fileID: 1555337028544982, guid: c79aef0d200aad74ab31069d12170e53,
+      type: 2}
+    shouldExpand: 1
+  - amountToPool: 3
+    objectToPool: {fileID: 1256325933590580, guid: c33c63c0ad2b9b043a93f0e5108d455f,
+      type: 2}
+    shouldExpand: 1
+  - amountToPool: 2
+    objectToPool: {fileID: 1623636931508294, guid: a691596d5f8af414580b6e7bb78b7b84,
+      type: 2}
+    shouldExpand: 0
+  - amountToPool: 2
+    objectToPool: {fileID: 1784169526190842, guid: aefdb81a4e0cf2f48a28822ca6d60a90,
+      type: 2}
+    shouldExpand: 0
+  - amountToPool: 3
+    objectToPool: {fileID: 1939475412132386, guid: 7d3d7c1c528d00a4abaf0b653c4a5878,
+      type: 2}
+    shouldExpand: 1
+  pooledObjects: []
+--- !u!114 &114631259082954534
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1197969241442672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d8ee1ec0fbb2fe48ba9e6d2ef2698b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  typingPizza: {fileID: 0}
+  score: {fileID: 0}
+  truck: {fileID: 0}
+  houseSpeed: 1
+  mul: 1.1
+  gameRunning: 1
