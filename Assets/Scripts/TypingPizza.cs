@@ -63,7 +63,10 @@ public class TypingPizza : MonoBehaviour {
                 pizzaCodeCount = 0;   
             }
             typingTab.SetTypingCount(pizzaCodeCount);
-            pizzaTab.ChangedSprite(pizzaCodeCount);
+            if (!isEnd)
+            {
+                pizzaTab.ChangedSprite(pizzaCodeCount);
+            }
         }
     }
 
