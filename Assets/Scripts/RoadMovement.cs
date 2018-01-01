@@ -20,11 +20,15 @@ public class RoadMovement : MonoBehaviour {
     }
 	
 	void Update () {
-        speed = gameManage.GetSpeed();
-        transform.position += Vector3.left * speed * Time.deltaTime;
-        
-        if (transform.position.x <= -23.07) {
-            transform.position = startPoint;
+        if(gameManage.gameRunning)
+        {
+            speed = gameManage.GetSpeed();
+            transform.position += Vector3.left * speed * Time.deltaTime;
+
+            if (transform.position.x <= -23.07)
+            {
+                transform.position = startPoint;
+            }
         }
 	}
 }

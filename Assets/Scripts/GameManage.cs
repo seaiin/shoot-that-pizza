@@ -34,31 +34,31 @@ public class GameManage : MonoBehaviour {
 
     void Update () {
 
-        typingPizza.TypeUpdate();
-        
-        if (typingPizza.isTypingFinish())
+        if (gameRunning)
         {
-            score.SetScore(100);
-            house.GetComponent<HouseMovement>().ReceiveOrder();
-            SetInactiveOrder();
-            SendingPizza();
-            typingPizza.SetNotFinish();
-        }
+            typingPizza.TypeUpdate();
 
-        SetSpeed();
-
-        if (typingPizza.isTypingEmp())
-        {
-            if (houseQueue.Count > 0)
+            if (typingPizza.isTypingFinish())
             {
-                house = houseQueue.Dequeue();
-                pizzaCode = house.GetComponent<HouseMovement>().getPizza();
-                typingPizza.SetPizza(pizzaCode);
+                score.SetScore(100);
+                house.GetComponent<HouseMovement>().ReceiveOrder();
+                SetInactiveOrder();
+                SendingPizza();
+                typingPizza.SetNotFinish();
             }
-        }
 
-        if (!gameRunning)
-        {
+            SetSpeed();
+
+            if (typingPizza.isTypingEmp())
+            {
+                if (houseQueue.Count > 0)
+                {
+                    house = houseQueue.Dequeue();
+                    pizzaCode = house.GetComponent<HouseMovement>().getPizza();
+                    typingPizza.SetPizza(pizzaCode);
+                }
+            }
+        } else {
             endingBackground.SetActive(true);
             score.EndingPos();
         }
