@@ -7,31 +7,33 @@ public class HouseMovement : MonoBehaviour {
     public float speed = 1f;
     public float mul = 1.1f;
     public GameManage gameManage;
+    public bool hasOrder = true;
 
-    private bool hasOrder = true;
     private string pizzaType;
     private float padding = 1f;
     private float startPoint;
     private Vector3 leftmost;
     private Vector3 rightmost;
 
+    void OnEnable () {
+        setOrder();
+    }
+
     void Start () {
         float distance = transform.position.z - Camera.main.transform.position.z;
         leftmost = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, distance));
         rightmost = Camera.main.ViewportToWorldPoint(new Vector3(1, 0, distance));
-
         startPoint = rightmost.x + padding;
         transform.position = new Vector3(startPoint, transform.position.y, transform.position.z);
- 
+
         setPizza();
 
         gameManage = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManage>();
-        speed = gameManage.GetSpeed();
 	}
 
     void Update () {
-        //if(gameManage.gameRunning)
-        //{
+        if(gameManage.gameRunning)
+        {
             speed = gameManage.GetSpeed();
             transform.position += Vector3.left * speed * Time.deltaTime;
 
@@ -40,11 +42,15 @@ public class HouseMovement : MonoBehaviour {
                 transform.position = new Vector3(startPoint, transform.position.y, transform.position.z);
                 gameObject.SetActive(false);
             }
-        //}
+        }
     }
 
     private void setPizza () {
         pizzaType = pizza.getTypeOfPizza();
+    }
+
+    private void setOrder() {
+        hasOrder = true;
     }
 
     public void showType () {
