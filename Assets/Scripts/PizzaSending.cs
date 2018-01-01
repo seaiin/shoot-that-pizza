@@ -5,6 +5,7 @@ using UnityEngine;
 public class PizzaSending : MonoBehaviour {
     
     public GameObject house;
+    public GameManage gameManage;
 
     private Vector3 startPoint;
     private Vector3 startScale;
@@ -19,9 +20,12 @@ public class PizzaSending : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        gameManage = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManage>();
         startPoint = transform.position;
         startScale = transform.localScale;
-	}
+        speedPos = gameManage.GetSpeed() * 10;
+        speedScale = gameManage.GetSpeed() * 2;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -31,6 +35,11 @@ public class PizzaSending : MonoBehaviour {
         if (transform.position == house.transform.position) {
             transform.position = startPoint;
             transform.localScale = startScale;
+            gameObject.SetActive(false);
+        }
+
+        if (!house.activeSelf)
+        {
             gameObject.SetActive(false);
         }
 	}

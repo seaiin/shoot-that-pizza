@@ -55,7 +55,6 @@ public class HouseMovement : MonoBehaviour {
 
     public void showType () {
         Debug.Log(pizzaType);
-        //Debug.Log("Hello");
     }
 
     public string getPizza () {

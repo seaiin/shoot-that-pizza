@@ -57,15 +57,8 @@ public class TypingPizza : MonoBehaviour {
                 pizzaCodeCount++;
             }
             else
-            { 
-                if (input[0] == pizzaCode[0] && pizzaCodeCount == 1)
-                {
-                    pizzaCodeCount = 1;
-                }
-                else
-                {
-                    pizzaCodeCount = 0;
-                }   
+            {
+                pizzaCodeCount = 0;   
             }
             typingTab.SetTypingCount(pizzaCodeCount);
             pizzaTab.ChangedSprite(pizzaCodeCount);
