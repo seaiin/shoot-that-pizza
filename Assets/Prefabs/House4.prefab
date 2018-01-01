@@ -67,7 +67,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1623636931508294}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalPosition: {x: 0, y: 0, z: 92.5}
   m_LocalScale: {x: 0.12, y: 0.12, z: 1}
   m_Children:
   - {fileID: 4629257156742386}
@@ -133,7 +133,8 @@ MonoBehaviour:
   pizza: {fileID: 114723823893013516, guid: 8e141a423652dcd4a8e55845f8c66517, type: 2}
   speed: 1
   mul: 1.1
-  scoreObj: {fileID: 0}
+  gameManage: {fileID: 0}
+  hasOrder: 1
 --- !u!114 &114678828595306126
 MonoBehaviour:
   m_ObjectHideFlags: 1
