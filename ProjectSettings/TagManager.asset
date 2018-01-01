@@ -15,6 +15,7 @@ TagManager:
   - Score
   - GameManager
   - SendingPizza
+  - EndingBackground
   layers:
   - Default
   - TransparentFX

@@ -14,6 +14,7 @@ public class GameManage : MonoBehaviour {
     private bool canUpSpeed = true;
     private Queue<GameObject> houseQueue = new Queue<GameObject>();
     private GameObject house;
+    private GameObject endingBackground;
     private string pizzaCode;
     private float minTime = 1.5f;
     private float maxTime = 6f;
@@ -27,6 +28,8 @@ public class GameManage : MonoBehaviour {
         initTagHouse();
         setSpawnTime();
         time = minTime;
+        endingBackground = GameObject.FindGameObjectWithTag("EndingBackground");
+        endingBackground.SetActive(false);
     }
 
     void Update () {
@@ -52,6 +55,12 @@ public class GameManage : MonoBehaviour {
                 pizzaCode = house.GetComponent<HouseMovement>().getPizza();
                 typingPizza.SetPizza(pizzaCode);
             }
+        }
+
+        if (!gameRunning)
+        {
+            endingBackground.SetActive(true);
+            score.EndingPos();
         }
 	}
 
