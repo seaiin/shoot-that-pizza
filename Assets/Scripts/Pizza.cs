@@ -7,11 +7,14 @@ public class Pizza : MonoBehaviour {
     private string pizzaCode;
 
     void Start() {
-        typePizza.Add(0, "HWI");
-        typePizza.Add(1, "MBL");
-        typePizza.Add(2, "PEP");
-        typePizza.Add(3, "SEA");
-        typePizza.Add(4, "SPN");
+        if (typePizza.Count == 0)
+        {
+            typePizza.Add(0, "HWI");
+            typePizza.Add(1, "MBL");
+            typePizza.Add(2, "PEP");
+            typePizza.Add(3, "SEA");
+            typePizza.Add(4, "SPN");
+        }
     }
 
     public string getTypeOfPizza () {

@@ -3,6 +3,7 @@ using System.Text.RegularExpressions;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TypingPizza : MonoBehaviour {
 
@@ -11,6 +12,7 @@ public class TypingPizza : MonoBehaviour {
     private string input;
     private bool isFinish = false;
     private bool isEmptry = true;
+    private bool isEnd = false;
 
     public TypingTab typingTab;
     public PizzaTab pizzaTab;
@@ -73,7 +75,10 @@ public class TypingPizza : MonoBehaviour {
             isEmptry = false;
             typingTab.SetTypingChar(pizzaCode);
             typingTab.SetTypingCount(pizzaCodeCount);
-            pizzaTab.SetPizza(pizza);
+            if (!isEnd)
+            {
+               pizzaTab.SetPizza(pizza);
+            }
         }
     }
 
@@ -102,7 +107,14 @@ public class TypingPizza : MonoBehaviour {
 
         if (pizzaCodeCount >= pizzaCode.Length)
         {
-            SetFinish();
+            if (isEnd)
+            {
+                SceneManager.LoadScene("Start");
+            }
+            else
+            {
+                SetFinish();
+            }
         }
    
     }
@@ -110,5 +122,11 @@ public class TypingPizza : MonoBehaviour {
     public Sprite getCompletePizza ()
     {
         return pizzaTab.getCompletePizza();
+    }
+
+    public void SetEnd()
+    {
+        isEnd = true;
+        SetPizza("AGN");
     }
 }

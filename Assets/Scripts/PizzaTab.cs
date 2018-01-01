@@ -13,9 +13,8 @@ public class PizzaTab : MonoBehaviour {
     private Sprite[] comSprite;
     private static Dictionary<string, int> pizzaIndex = new Dictionary<string, int>();
 
-    void Awake()
+    void Start()
     {
-
         plainSprite = Resources.Load<Sprite>("pizza/pizza-plain");
         preSprite = Resources.LoadAll<Sprite>("pizza/pre");
         comSprite = Resources.LoadAll<Sprite>("pizza/complete");
@@ -24,11 +23,14 @@ public class PizzaTab : MonoBehaviour {
 
     private void InitIndex()
     {
-        pizzaIndex.Add("HWI", 0);
-        pizzaIndex.Add("MBL", 1);
-        pizzaIndex.Add("PEP", 2);
-        pizzaIndex.Add("SEA", 3);
-        pizzaIndex.Add("SPN", 4);
+        if (pizzaIndex.Count == 0)
+        {
+            pizzaIndex.Add("HWI", 0);
+            pizzaIndex.Add("MBL", 1);
+            pizzaIndex.Add("PEP", 2);
+            pizzaIndex.Add("SEA", 3);
+            pizzaIndex.Add("SPN", 4);
+        }
     }
 
     private void SetIndex()

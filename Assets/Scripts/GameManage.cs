@@ -28,15 +28,20 @@ public class GameManage : MonoBehaviour {
         initTagHouse();
         setSpawnTime();
         time = minTime;
+    }
+
+    void Awake()
+    {
         endingBackground = GameObject.FindGameObjectWithTag("EndingBackground");
         endingBackground.SetActive(false);
     }
 
     void Update () {
 
+        typingPizza.TypeUpdate();
+
         if (gameRunning)
         {
-            typingPizza.TypeUpdate();
 
             if (typingPizza.isTypingFinish())
             {
@@ -61,6 +66,7 @@ public class GameManage : MonoBehaviour {
         } else {
             endingBackground.SetActive(true);
             score.EndingPos();
+            typingPizza.SetEnd();
         }
 	}
 
@@ -115,11 +121,14 @@ public class GameManage : MonoBehaviour {
 
     private void initTagHouse ()
     {
-        tagHouse.Add(0, "House1");
-        tagHouse.Add(1, "House2");
-        tagHouse.Add(2, "House3");
-        tagHouse.Add(3, "House4");
-        tagHouse.Add(4, "House5");
+        if (tagHouse.Count == 0)
+        {
+            tagHouse.Add(0, "House1");
+            tagHouse.Add(1, "House2");
+            tagHouse.Add(2, "House3");
+            tagHouse.Add(3, "House4");
+            tagHouse.Add(4, "House5");
+        }
     }
 
     private void setSpawnTime ()
