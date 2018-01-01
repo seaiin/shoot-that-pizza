@@ -16,6 +16,9 @@ public class TypingPizza : MonoBehaviour {
 
     public TypingTab typingTab;
     public PizzaTab pizzaTab;
+    public AudioSource audioSource;
+    public AudioClip wrong;
+    public AudioClip typing1;
 
     private string detectPressedKey()
     {
@@ -57,10 +60,12 @@ public class TypingPizza : MonoBehaviour {
             if (input[0] == pizzaCode[pizzaCodeCount])
             {
                 pizzaCodeCount++;
+                audioSource.PlayOneShot(typing1);
             }
             else
             {
-                pizzaCodeCount = 0;   
+                pizzaCodeCount = 0;
+                audioSource.PlayOneShot(wrong);
             }
             typingTab.SetTypingCount(pizzaCodeCount);
             if (!isEnd)
